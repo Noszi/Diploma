@@ -1,17 +1,15 @@
-const {ipcRenderer} = require('electron');
+const { ipcRenderer } = require('electron');
 
 function openNav() {
-  if (document.getElementById("myplaylist").style.width == "0px")
-    document.getElementById("myplaylist").style.width = "285px"
-  else
-    document.getElementById("myplaylist").style.width = "0px"
+	if (document.getElementById('myplaylist').style.width == '0px')
+		document.getElementById('myplaylist').style.width = '285px';
+	else document.getElementById('myplaylist').style.width = '0px';
 }
 
 function openSide() {
-  if (document.getElementById("paylistSlidenav").style.width == "0px")
-    document.getElementById("paylistSlidenav").style.width = "285px"
-  else
-    document.getElementById("paylistSlidenav").style.width = "0px"
+	if (document.getElementById('paylistSlidenav').style.width == '0px')
+		document.getElementById('paylistSlidenav').style.width = '285px';
+	else document.getElementById('paylistSlidenav').style.width = '0px';
 }
 /*
 function openSide() {
@@ -22,105 +20,120 @@ function closeSide() {
 }
 */
 
+function initAudioPlayer() {
+	var audio,
+		playbtn,
+		mutebtn,
+		seekslider,
+		volumeslider,
+		seeking = false,
+		seekto,
+		curtimetext,
+		durtimetext,
+		openDialog,
+		savelast20,
+		disc,
+		nextSong,
+		prevSong,
+		check;
+	var index = 0;
+	var crplaylist = [];
 
-function initAudioPlayer(){
-var audio, playbtn, mutebtn, seekslider, volumeslider, seeking=false, seekto, curtimetext, durtimetext, openDialog ,savelast20, disc , nextSong , prevSong ,check;
-var index = 0;
-var crplaylist = [];
+	// Set object references
+	playbtn = document.getElementById('playpausebtn');
+	mutebtn = document.getElementById('mutebtn');
+	seekslider = document.getElementById('seekslider');
+	volumeslider = document.getElementById('volumeslider');
+	curtimetext = document.getElementById('curtimetext');
+	durtimetext = document.getElementById('durtimetext');
+	crplaylist = document.getElementById('crplaylist');
+	disc = document.getElementsByClassName('center')[0];
 
-// Set object references
-playbtn = document.getElementById("playpausebtn");
-mutebtn = document.getElementById("mutebtn");
-seekslider = document.getElementById("seekslider");
-volumeslider = document.getElementById("volumeslider");
-curtimetext = document.getElementById("curtimetext");
-durtimetext = document.getElementById("durtimetext");
-crplaylist = document.getElementById("crplaylist");
-disc = document.getElementsByClassName("center")[0];
+	openDialog = document.getElementsByClassName('createpl')[0];
+	savelast20 = document.getElementsByClassName('favorit')[0];
 
-openDialog = document.getElementsByClassName("createpl")[0];
-savelast20 = document.getElementsByClassName("favorit")[0];
+	nextSong = document.getElementById('nextBtn');
+	prevSong = document.getElementById('prevBtn');
 
-nextSong = document.getElementById("nextBtn");
-prevSong = document.getElementById("prevBtn");
+	//check = document.getElementById("checkbox");
+	// Audio Object
 
-//check = document.getElementById("checkbox");
-// Audio Object
+	audio = new Audio();
+	audio.onended = () => {
+		playNext();
+	};
 
-audio = new Audio();
-audio.onended = () => {
-  playNext();
-}
+	// Add Event Handling
+	playbtn.addEventListener('click', playPause);
+	mutebtn.addEventListener('click', mute);
+	seekslider.addEventListener('mousedown', function(event) {
+		seeking = true;
+		seek(event);
+	});
+	seekslider.addEventListener('mousemove', function(event) {
+		seek(event);
+	});
+	seekslider.addEventListener('mouseup', function() {
+		seeking = false;
+	});
+	volumeslider.addEventListener('mousemove', setvolume);
+	audio.addEventListener('timeupdate', function() {
+		seektimeupdate();
+	});
+	audio.addEventListener('ended', function() {
+		switchTrack();
+	});
 
-// Add Event Handling
-playbtn.addEventListener("click",playPause);
-mutebtn.addEventListener("click", mute);
-seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
-seekslider.addEventListener("mousemove", function(event){ seek(event); });
-seekslider.addEventListener("mouseup",function(){ seeking=false; });
-volumeslider.addEventListener("mousemove", setvolume);
-audio.addEventListener("timeupdate", function(){ seektimeupdate(); });
-audio.addEventListener("ended", function(){ switchTrack(); });
+	//Shuffle.addEventListener("click",toggleShuffle);
+	//check.addEventListener("checked",function(){ playchecked(); });
 
-//Shuffle.addEventListener("click",toggleShuffle);
-//check.addEventListener("checked",function(){ playchecked(); });
+	openDialog.addEventListener('click', () => {
+		ipcRenderer.send('openDialog');
+	});
 
-openDialog.addEventListener("click", () => {
-  ipcRenderer.send('openDialog');
-})
+	ipcRenderer.on('selected-files', (event, args) => {
+		crplaylist = args.files;
+		args.files.map((path, i) => {
+			var name = document.createElement('div');
+			name.innerHTML = path.substring(path.lastIndexOf('\\') + 1, path.lastIndexOf('.'));
+			var row = document.createElement('div');
+			var number = document.createElement('div');
+			number.innerHTML = (i + 1).toString();
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			number.classList.add('index');
+			name.classList.add('name');
 
-ipcRenderer.on('selected-files', (event, args) => {
-  crplaylist = args.files;
-  args.files.map((path, i) => {
-    var ngitame = document.createElement('div').innerHTML = path.substring(path.lastIndexOf('\\') + 1, path.lastIndexOf('.'));
-    var row = document.createElement('div');
-    var index = document.createElement('div').innerHTML = i + 1;
-    var checkbox = document.createElement('input');
-    checkbox.type="checkbox";
+			row.append(number);
+			row.append(name);
+			row.append(checkbox);
 
-    index.classList.add("index");
-    name.classList.add("name");
-    
-    row.append(index);
-    row.append(name);
-    row.append(checkbox);
-    
+			row.classList.add('element');
+			checkbox.classList.add('checkbox');
 
-    row.classList.add("element");
-    checkbox.classList.add("checkbox");
-    
-    
-
-
-    //checkbox.className.add('check');
-/*   nem vagom miert nem mukodik
+			//checkbox.className.add('check');
+			/*   nem vagom miert nem mukodik
     name.classList.add('songname');
     index.classList.add('index1');
     checkbox.classList.add('check');
 */
 
-/* jo a kod , de valamiert nem mukodik
+			/* jo a kod , de valamiert nem mukodik
 $("#bt2").click(function(){
   $('input:checkbox').not(this).prop('checked', this.checked);
 });
 */
 
-    row.addEventListener('click', () => {
-      audio.src = path;
-      index = i;
-      playPause();
-    });
-    document.getElementById('crplaylist').append(row);
-  })
+			row.addEventListener('click', () => {
+				audio.src = path;
+				index = i;
+				playPause();
+			});
+			document.getElementById('crplaylist').append(row);
+		});
+	});
 
-})
-
-
-
-
-
-
-/*function playchecked(){
+	/*function playchecked(){
   if(audio.checked){
   audio.play();
   }
@@ -130,10 +143,7 @@ $("#bt2").click(function(){
 }
 */
 
-
-
-
-/* play checked
+	/* play checked
 var audio = new Audio();
 audio.oncanplay = function() {
   if (document.getElementById("checkbox").checked) this.play()
@@ -170,68 +180,64 @@ function toggleShuffle(crplaylist) {
 
 */
 
+	// Functions
 
+	//playpause
+	function playPause() {
+		disc.classList.toggle('rotate');
+		if (audio.paused) {
+			audio.play();
+			playbtn.style.background = 'url(images/pause.png) no-repeat center';
+		} else {
+			audio.pause();
+			playbtn.style.background = 'url(images/play.png) no-repeat center';
+		}
+	}
+	//volume
+	function mute() {
+		if (audio.muted) {
+			audio.muted = false;
+			mutebtn.style.background = 'url(images/unmute.png) no-repeat center';
+		} else {
+			audio.muted = true;
+			mutebtn.style.background = 'url(images/mute.png) no-repeat center';
+		}
+	}
 
+	function seek(event) {
+		if (seeking) {
+			seekslider.value = event.clientX - seekslider.offsetLeft;
+			seekto = audio.duration * (seekslider.value / 100);
+			audio.currentTime = seekto;
+		}
+	}
+	function setvolume() {
+		audio.volume = volumeslider.value / 100;
+	}
 
-
-
-
-
-// Functions
-
-
-//playpause
-function playPause(){
-disc.classList.toggle('rotate');
-if(audio.paused){
-  audio.play();
-  playbtn.style.background = "url(images/pause.png) no-repeat center";
-} else {
-  audio.pause();
-  playbtn.style.background = "url(images/play.png) no-repeat center";
-}
-}
-//volume
-function mute(){
-if(audio.muted){
-  audio.muted = false;
-  mutebtn.style.background = "url(images/unmute.png) no-repeat center";
-} else {
-  audio.muted = true;
-  mutebtn.style.background = "url(images/mute.png) no-repeat center";
-}
-}
-
-
-
-
-function seek(event){
-if(seeking){
-  seekslider.value = event.clientX - seekslider.offsetLeft;
-    seekto = audio.duration * (seekslider.value / 100);
-    audio.currentTime = seekto;
-}
-}
-function setvolume(){
-audio.volume = volumeslider.value / 100;
-}
-
-//time
-function seektimeupdate(){
-var nt = audio.currentTime * (100 / audio.duration);
-seekslider.value = nt;
-var curmins = Math.floor(audio.currentTime / 60);
-var cursecs = Math.floor(audio.currentTime - curmins * 60);
-var durmins = Math.floor(audio.duration / 60);
-var dursecs = Math.floor(audio.duration - durmins * 60);
-if(cursecs < 10){ cursecs = "0"+cursecs; }
-if(dursecs < 10){ dursecs = "0"+dursecs; }
-if(curmins < 10){ curmins = "0"+curmins; }
-if(durmins < 10){ durmins = "0"+durmins; }
-curtimetext.innerHTML = curmins+":"+cursecs;
-durtimetext.innerHTML = durmins+":"+dursecs;
-}
+	//time
+	function seektimeupdate() {
+		var nt = audio.currentTime * (100 / audio.duration);
+		seekslider.value = nt;
+		var curmins = Math.floor(audio.currentTime / 60);
+		var cursecs = Math.floor(audio.currentTime - curmins * 60);
+		var durmins = Math.floor(audio.duration / 60);
+		var dursecs = Math.floor(audio.duration - durmins * 60);
+		if (cursecs < 10) {
+			cursecs = '0' + cursecs;
+		}
+		if (dursecs < 10) {
+			dursecs = '0' + dursecs;
+		}
+		if (curmins < 10) {
+			curmins = '0' + curmins;
+		}
+		if (durmins < 10) {
+			durmins = '0' + durmins;
+		}
+		curtimetext.innerHTML = curmins + ':' + cursecs;
+		durtimetext.innerHTML = durmins + ':' + dursecs;
+	}
 }
 
-
-window.addEventListener("load", initAudioPlayer);
+window.addEventListener('load', initAudioPlayer);

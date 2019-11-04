@@ -1,520 +1,458 @@
 /*whole body*/
-.musicplayer{
-    float: left;
-    width: 385px;
-    height: 500px;
-    background: linear-gradient(to top, #add8ff 10.00%, #0088FF 100.00%);
+.musicplayer {
+	float: left;
+	width: 385px;
+	height: 500px;
+	background: linear-gradient(to top, #add8ff 10.00%, #0088ff 100.00%);
 }
 /*header*/
-.header{
-    z-index: 1;
-    width: 100%;
-    height: 10%;
-
+.header {
+	z-index: 1;
+	width: 100%;
+	height: 10%;
 }
-.header{
-    width: 100%;
-    height: 10%;
+.header {
+	width: 100%;
+	height: 10%;
 }
-.cim{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 30px;
-    z-index: 2;
-    color:white;
+.cim {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 30px;
+	z-index: 2;
+	color: white;
 }
 /**/
 /*middle*/
-.mid{
-    
-
-    width: 100%;
-    height: 60%;
-
+.mid {
+	width: 100%;
+	height: 60%;
 }
-.center{
-
-    width:  70% ;
-    height: 100%;
-    margin:auto;
-    z-index: 2;   
-    background-image: url("images/icon2.png"); 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;
-    
-
+.center {
+	width: 70%;
+	height: 100%;
+	margin: auto;
+	z-index: 2;
+	background-image: url("images/icon2.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-.rotate{
-    animation-name: spin;
-    animation-duration: 4000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; 
+.rotate {
+	animation-name: spin;
+	animation-duration: 4000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 @-webkit-keyframes spin {
-
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
-
 
 /**/
 /*timeline*/
 
-.timeline{
-    width: 100%;
-    height: 10%;
-    padding-top: 2%;
-    padding-left: 5%;
+.timeline {
+	width: 100%;
+	height: 10%;
+	padding-top: 2%;
+	padding-left: 5%;
 }
-.time{
-width: 20%;
-height: 100%;
-float: left;
-
-
+.time {
+	width: 20%;
+	height: 100%;
+	float: left;
 }
-.timepast{
-width: 60%;
-height: 100%;
-float: left;
-
+.timepast {
+	width: 60%;
+	height: 100%;
+	float: left;
 }
-.endtime{
-    width: 20%;
-    height: 100%;
-    float: left;
-    padding-left: 5%;
-
+.endtime {
+	width: 20%;
+	height: 100%;
+	float: left;
+	padding-left: 5%;
 }
 /**/
-
-
-
-
-
-
 
 /*footer1*/
-.footer1{
-    width: 100%;
-    height: 10%;
-    padding-left: 3%;
+.footer1 {
+	width: 100%;
+	height: 10%;
+	padding-left: 3%;
 }
-.previous{
-    width: 15%;
-    height: 100%;
-    float: left;
-    
+.previous {
+	width: 15%;
+	height: 100%;
+	float: left;
 }
-#prevBtn{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    
-    background-image:url("images/previous.png");
-    background-repeat: no-repeat;
-    background-position: center;
+#prevBtn {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+
+	background-image: url("images/previous.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-.startstop{
-    width: 15%;
-    height: 100%;
-    float: left;
+.startstop {
+	width: 15%;
+	height: 100%;
+	float: left;
 }
-#playpausebtn{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-image:url("images/play.png");
-    background-repeat: no-repeat;
-    background-position: center;
+#playpausebtn {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-image: url("images/play.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
-.next{
-    width: 15%;
-    height: 100%;
-    float: left;
-
+.next {
+	width: 15%;
+	height: 100%;
+	float: left;
 }
-#nextBtn{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-image:url("images/next.png");
-    background-repeat: no-repeat;
-    background-position: center;
+#nextBtn {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-image: url("images/next.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
-.space{
-    width: 15%;
-    height: 100%;
-    float: left;
+.space {
+	width: 15%;
+	height: 100%;
+	float: left;
 }
-
-
 
 /*volume*/
-.musicslider{
-width:40%;
-height: 100%;
-float: left;
-
+.musicslider {
+	width: 40%;
+	height: 100%;
+	float: left;
 }
-#mutebtn{
-    float: left;
-    width: 33%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-image: url("images/unmute.png");
-    background-repeat: no-repeat;
-    background-position: center;
-
+#mutebtn {
+	float: left;
+	width: 33%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-image: url("images/unmute.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
-#volumeslider{
-    margin-left: 5%;
-    width: 60%;
-    height: 100%;
-    float: left;
+#volumeslider {
+	margin-left: 5%;
+	width: 60%;
+	height: 100%;
+	float: left;
 }
-
 
 /**/
 
-
-
-
-
-
-
-
-
-
-.footer2{
-    width: 100%;
-    height: 10%;
+.footer2 {
+	width: 100%;
+	height: 10%;
 }
-.favorite{
-    margin-left: 5%;
-    width: 15%;
-    float: left;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
+.favorite {
+	margin-left: 5%;
+	width: 15%;
+	float: left;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
 }
-.favorit{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-color: lightblue;
-    background-image: url("images/favorite.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.favorit {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-color: lightblue;
+	background-image: url("images/favorite.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 .favorit:hover {
-    background-color: #0088FF;
-    color: white;
-  }
-.random{
-    margin-left: 5%;
-    width: 15%;
-    float: left;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-
+	background-color: #0088ff;
+	color: white;
 }
-#shuffleBtn{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-color: lightblue;
-    background-image: url("images/shuffle.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.random {
+	margin-left: 5%;
+	width: 15%;
+	float: left;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+}
+#shuffleBtn {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-color: lightblue;
+	background-image: url("images/shuffle.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 #shuffleBtn:hover {
-    background-color: #0088FF;
-    color: white;
-  }
-.openplaylists{
-    margin-left: 5%;
-    width: 15%;
-    float: left;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-
+	background-color: #0088ff;
+	color: white;
 }
-#playlistBtn{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-color: lightblue;
-    background-image: url("images/playlist.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.openplaylists {
+	margin-left: 5%;
+	width: 15%;
+	float: left;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+}
+#playlistBtn {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-color: lightblue;
+	background-image: url("images/playlist.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 #playlistBtn:hover {
-    background-color: #0088FF;
-    color: white;
-  }
-.createplay{
-    margin-left: 5%;
-    width: 20%;
-    float: left;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-
+	background-color: #0088ff;
+	color: white;
 }
-.createpl{
-    float: left;
-    width: 90%;
-    height: 100%;
-    border:none;
-    border-radius: 20%;
-    background-color: lightblue;
-    background-image: url("images/add.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.createplay {
+	margin-left: 5%;
+	width: 20%;
+	float: left;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+}
+.createpl {
+	float: left;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 20%;
+	background-color: lightblue;
+	background-image: url("images/add.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 .createpl:hover {
-    background-color: #0088FF;
-    color: white;
-  }
-
-
-
-    #playlistBtn{
-        padding-left: 1%; 
-        float: left;
-        color: black;
-      }
-
-    #opensavedplaylists{
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-      #mySidenav {
-        
-        height: 500px; 
-        width: 285px; 
-        margin-left: 386px;
-        color:black;
-        background: linear-gradient(to top, #add8ff 10.00%, #0088FF 100.00%);
-        overflow-x: hidden; 
-        transition: 0.5s; 
-        position:absolute;
-      }
-      
-      
-
-.sidenavtop{
-    text-align: center;
-    font-size: 25px;
-    width: 100%;
-    height: 10%;
-    float: left;
-    border: 1px solid #add8e6;
-    border-top: none;
-    border-radius: 10%;
+	background-color: #0088ff;
+	color: white;
 }
-.sidenavmid{
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    float: left;
+
+#playlistBtn {
+	padding-left: 1%;
+	float: left;
+	color: black;
 }
-.side{
-    z-index: 2;
-    width: 100%;
-    height: 90%;
-    float: left;
+
+#opensavedplaylists {
+	width: 100%;
+	height: 100%;
+	border: none;
 }
-      
 
+#mySidenav {
+	height: 500px;
+	width: 285px;
+	margin-left: 386px;
+	color: black;
+	background: linear-gradient(to top, #add8ff 10.00%, #0088ff 100.00%);
+	overflow-x: hidden;
+	transition: 0.5s;
+	position: absolute;
+}
 
+.sidenavtop {
+	text-align: center;
+	font-size: 25px;
+	width: 100%;
+	height: 10%;
+	float: left;
+	border: 1px solid #add8e6;
+	border-top: none;
+	border-radius: 10%;
+}
+.sidenavmid {
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.side {
+	z-index: 2;
+	width: 100%;
+	height: 90%;
+	float: left;
+}
 
-
-#myplaylist{
-    position: relative;   
-    z-index: 1;
-    float:right;
-    width: 0px;
-    height: 200px;
-    transition: 0.5s;
+#myplaylist {
+	position: relative;
+	z-index: 1;
+	float: right;
+	width: 0px;
+	height: 200px;
+	transition: 0.5s;
 }
 #myplaylist a {
-    text-decoration: none;
-    font-size: 35px;
-    float: right;
-    color: black;
-    display: block;
-    transition: 0.3s;
-  }
-  @media screen and (max-width: 250px) {
-    .myplaylist {padding-top: 35px;}
-    .myplaylist a {font-size: 18px;}
-  } 
-  .felso:after {
-    content: "";
-    display: table;
-    clear: both;    
-  }
-
-
-.allplaylistsaved{
-    width: 100%;
-    height: 80%;
-    background-color: yellow;
+	text-decoration: none;
+	font-size: 35px;
+	float: right;
+	color: black;
+	display: block;
+	transition: 0.3s;
+}
+@media screen and (max-width: 250px) {
+	.myplaylist {
+		padding-top: 35px;
+	}
+	.myplaylist a {
+		font-size: 18px;
+	}
+}
+.felso:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
-.allplaylistbtns{width: 100%;
-    height: 20%;
-    background-color: grey;}
-
-  #allplaylistplaybtn{
-    width: 100%;
-    height: 100%;
-      border:none;
-      background-color: black;
-  }
-
-  #allplaylistdeletebtn{
-    width: 100%;
-    height: 100%;
-    border:none;
-    background-color: red;
-
+.allplaylistsaved {
+	width: 100%;
+	height: 80%;
+	background-color: yellow;
 }
-.asd1{
-width: 50%;
-height: 100%;
+
+.allplaylistbtns {
+	width: 100%;
+	height: 20%;
+	background-color: grey;
 }
-.asd1{
-    width: 50%;
-    height: 100%;
-    float: left;
-    }
-    .asd2{
-        width: 50%;
-        height: 100%;
-        float: left;
-        
-        }
 
-
-
-
-
-
-
-
-
-
-
-#paylistSlidenav{
-    width: 0px;
-    height: 500px;
-    margin-left: 386px;
-    color:black;
-    background: linear-gradient(to top, #add8ff 10.00%, #0088FF 100.00%);
-    overflow-x: hidden; 
-    transition: 0.5s; 
-    position: absolute;
+#allplaylistplaybtn {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: black;
 }
-.a1{
- width: 100%;
- height: 10%;
- font-size: 35px;
- text-align: center;
-}
-.a2{
-    width: 100%;
-    height: 80%;
-    
-}
-.a3{
-    width: 100%;
-    height: 10%;
-    position: absolute;
-}
-#bt1{
-    width: 25%;
-    height: 100%;
-    float: left;
-}
-#bt2{
-    width: 25%;
-    height: 100%;
-    float: left;
-}
-#bt3{
-    width: 25%;
-    height: 100%;
-    float: left;
-}
-#bt4{
-    width: 25%;
-    height: 100%;
-    float: left;
-}
-    
 
-.element{
-    width: 100%;
-    max-height:35px;
-    font-size: 15px;
-    line-height: 110%;
+#allplaylistdeletebtn {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: red;
+}
+.asd1 {
+	width: 50%;
+	height: 100%;
+}
+.asd1 {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+.asd2 {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#paylistSlidenav {
+	width: 0px;
+	height: 500px;
+	margin-left: 386px;
+	color: black;
+	background: linear-gradient(to top, #add8ff 10.00%, #0088ff 100.00%);
+	overflow-x: hidden;
+	transition: 0.5s;
+	position: absolute;
+}
+.a1 {
+	width: 100%;
+	height: 10%;
+	font-size: 35px;
+	text-align: center;
+}
+.a2 {
+	width: 100%;
+	height: 80%;
+}
+.a3 {
+	width: 100%;
+	height: 10%;
+	position: fixed;
+	display: flex;
+}
+#bt1,
+#bt2,
+#bt3,
+#bt4 {
+	height: 100%;
+	flex: 1;
+}
+
+.element {
+	width: 100%;
+
+	font-size: 15px;
+	line-height: 110%;
+	display: flex;
+	height: 50px;
 }
 
 .element:hover {
-    background-color: #00ffff;
-    cursor: default;
-    border-radius: 10%;
+	background-color: #00ffff;
+	cursor: default;
+	border-radius: 10%;
 }
 
-.name{
-    width: 80%;
-    height: 20px;
-    color: red;
+.name {
+	width: 80%;
+	height: 20px;
+	color: red;
+	flex: 1;
+	display: inline-block;
 }
 
-.index{
-    width: 10%;
-    height: 20px;
-    background-color: purple;
+.index {
+	width: 10%;
+	height: 20px;
+	background-color: purple;
+	display: inline-block;
 }
 
-.checkbox{
-    float: right;
-    width: 10%;
-    height: 20px;
+.checkbox {
+	float: right;
+	width: 10%;
+	height: 20px;
+	display: inline-block;
 }
