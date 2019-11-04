@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+
+<head>
+        <link rel="stylesheet"  href="style.css">
+        <link href="/mywebsitefolder/fontawesome/fontawesome-all.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="mediaelement-and-player.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./index.js"></script>
+
+</head>
+<body>
+
+<div class="musicplayer">
+    <div class="header">
+            <div class="cim"></div>
+    </div>
+<div class="mid">  
+     <div class="center">
+</div>
+
+
+  </div>
+
+<div class="timeline">
+    <div class="time"    >  <span  id="curtimetext">00:00</span>                                               </div>
+    <div class="timepast">  <input id="seekslider" type="range" min="0" max="100" value="0" step="1">          </div>
+    <div class="endtime" >  <span  id="durtimetext">00:00</span>                                               </div>
+</div>
+
+<div class="footer1">
+        <div class="previous">      <button id="prevBtn"  onclick="prevSong()"></button>   </div>
+        <div class="startstop">     <button id="playpausebtn"></button>     </div>  
+        <div class="next">          <button id="nextBtn"   onclick="nextSong()"></button>   </div> 
+        <div class="space"></div>
+        
+        <div class="musicslider">    <button id="mutebtn"></button>
+            <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">     </div>
+</div>
+
+<div class="footer2">
+    <div class="favorite"><button class="favorit"></button></div>
+    <div class="random"><button id="shuffleBtn" onclick="myshuffle()" ></button></div>
+    <div class="space"></div>
+    <div class="openplaylists"><button id="playlistBtn" onclick="openNav()"  ></button></div>
+    <div class="createplay"><button class="createpl" onclick="openSide()" ></button></div>
+</div>
+
+
+</div>
+<div id="mySidenav">
+    <div class="sidenavtop"> Playlist</div>
+    <div class="side">
+            <div id="myplaylist">
+                    <div class="allplaylistsaved"></div>
+                    <div class="allplaylistbtns">
+                        <div class="asd1">
+                        <button id="allplaylistplaybtn">Play</button>
+                        </div>
+                        <div class="asd2">
+                        <button id="allplaylistdeletebtn">Delete</button>
+                    </div>
+                    </div>
+                    
+            </div>
+    <div class="sidenavmid" id="playlist"></div>
+    </div>
+</div>
+<div id="paylistSlidenav">
+        <div class="a1">Create Playlist</div>
+        <div class="a2" id="crplaylist"></div>
+        <div class="a3">
+            <button id="bt1">Play selected</button>
+            <button id="bt2">Play all</button>
+            <button id="bt3" >Save & play</button>
+            <button id="bt4" onclick="openSide()" >Cancel</button>
+        </div>
+        </div>
+</body>
+</html>
+
+
+
